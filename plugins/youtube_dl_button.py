@@ -31,11 +31,16 @@ from database.access import clinton
 from PIL import Image
 
 
+
 async def youtube_dl_call_back(bot, update):
     cb_data = update.data
+
     # youtube_dl extractors
-    tg_send_type, youtube_dl_format, youtube_dl_ext = cb_data.split("|")
-    save_ytdl_json_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".json"
+    tg_send_type, youtube_dl_format, youtube_dl_ext, ranom = cb_data.split("|")
+    print(cb_data)
+    random1 = random_char(5)
+    save_ytdl_json_path = Config.DOWNLOAD_LOCATION + \
+        "/" + str(update.from_user.id) + f'{ranom}' + ".json"
     try:
         with open(save_ytdl_json_path, "r", encoding="utf8") as f:
             response_json = json.load(f)
