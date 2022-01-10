@@ -28,7 +28,7 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
-
+from helper_funcs.ran_text import random_char
 @Clinton.on_message(filters.private & filters.regex(pattern=".*http.*"))
 async def echo(bot, update):
     imog = await update.reply_text("Processing...⚡", reply_to_message_id=update.message_id)
